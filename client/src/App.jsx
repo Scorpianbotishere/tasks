@@ -9,8 +9,8 @@ function App() {
   return (
     <div className='container'>
       <Header />
-      <Routes exact>
-        <Route  path='/' Component={Home} />
+      <Routes >
+        <Route   path='/' Component={Home} />
         <Route  path='/login' Component={Login} />
         <Route  path='/register' Component={Register} />
         <Route  path='/create' Component={Create} />

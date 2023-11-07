@@ -1,6 +1,7 @@
 import { useState } from "react"
 
-function Task() {
+function Task(props) {
+    console.log(props.task)
     const [taskOptionStatus,setTaskOptionStatus] = useState(false)
     const taskPtions = ()=> {
         setTaskOptionStatus((pre) => pre =!pre)
@@ -17,9 +18,9 @@ function Task() {
                 <li>Delete Task</li>
             </ul>
         </div>}
-        <h5>This is the Title of Task</h5>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae totam corrupti consequuntur atque consectetur tempore id quis quae animi debitis earum porro, mollitia iure ducimus? Incidunt, libero. A, quaerat delectus.</p>
-        <h6>End Data : 8/3/2024</h6>
+        <h5>{props.task.name}</h5>
+        <p>{props.task.description}</p>
+        <h6>{props.task.startdate}</h6>
     </div>
   )
 }

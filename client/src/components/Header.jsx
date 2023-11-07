@@ -1,8 +1,16 @@
-import { NavLink } from "react-router-dom";
+import { NavLink , useNavigate } from "react-router-dom";
 
 function Header() {
 
-  const userlogged = false;
+  const navigate = useNavigate()
+  const userlogged = localStorage.getItem('jwtToken');
+  const handleLogout = () => {
+    // Clear the JWT token from local storage
+    localStorage.removeItem('jwtToken');
+    
+    // Redirect to the home page or any other desired page after logout
+    navigate('/login');
+  };
   return (
 
     <div className="header">
@@ -24,7 +32,7 @@ function Header() {
           </NavLink>
         </li>
        <li>
-          <NavLink to="/" activeClassName="active">
+          <NavLink to={'/register'} onClick={handleLogout}>
             Logout
           </NavLink>
         </li>
